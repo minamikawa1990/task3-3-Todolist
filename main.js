@@ -1,6 +1,8 @@
 'use strict'
 
 {
+
+    // タスク開始
     const add = document.getElementById('add');
     const input = document.getElementById('input');
     const tasks = document.getElementById('tasks');
@@ -56,6 +58,8 @@
     add.addEventListener('click', () => {
         addTask();
     })
+
+
     
 }
 
