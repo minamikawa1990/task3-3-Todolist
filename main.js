@@ -12,6 +12,13 @@
         const createBtnStatus = document.createElement('button');
         createBtnStatus.textContent = '作業中';
         status.appendChild(createBtnStatus);
+        createBtnStatus.addEventListener('click', () => {
+            if(createBtnStatus.textContent === '作業中'){
+                createBtnStatus.textContent = '完了';
+            }else if(createBtnStatus.textContent === '完了') {
+                createBtnStatus.textContent = '作業中';
+            }
+        });
         return createBtnStatus;
     };
 
