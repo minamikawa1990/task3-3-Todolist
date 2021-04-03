@@ -1,15 +1,18 @@
 'use strict'
 
 {
-
-    // タスク開始
+    
     const add = document.getElementById('add');
     const input = document.getElementById('input');
     const tasks = document.getElementById('tasks');
     const todos = [];
 
     const addStatus = (status, row) => {
+        
         const createBtnStatus = document.createElement('button');
+        if(createBtnStatus.textContent === '完了') {
+            return;
+        }
         createBtnStatus.textContent = '作業中';
         status.appendChild(createBtnStatus);
         createBtnStatus.addEventListener('click', () => {
@@ -66,8 +69,6 @@
         addTask();
     })
 
-
-    
 }
 
 
