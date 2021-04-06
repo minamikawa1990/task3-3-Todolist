@@ -8,12 +8,12 @@
     const todos = [];
 
     const addStatus = (status, row) => {
-        
         const createBtnStatus = document.createElement('button');
         if(createBtnStatus.textContent === '完了') {
             return;
         }
-        createBtnStatus.textContent = '作業中';
+        const index = row.rowIndex - 1;
+        createBtnStatus.textContent = todos[index].status;
         status.appendChild(createBtnStatus);
         createBtnStatus.addEventListener('click', () => {
             if(createBtnStatus.textContent === '作業中'){
@@ -21,6 +21,9 @@
             }else if(createBtnStatus.textContent === '完了') {
                 createBtnStatus.textContent = '作業中';
             }
+            
+            todos[index].status = createBtnStatus.textContent;
+            
         });
         return createBtnStatus;
     };
@@ -67,6 +70,7 @@
 
     add.addEventListener('click', () => {
         addTask();
+        console.log(todos);
     })
 
 }
