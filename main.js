@@ -1,6 +1,7 @@
 'use strict'
 
 {
+    
     const add = document.getElementById('add');
     const input = document.getElementById('input');
     const tasks = document.getElementById('tasks');
@@ -8,8 +9,22 @@
 
     const addStatus = (status, row) => {
         const createBtnStatus = document.createElement('button');
-        createBtnStatus.textContent = '作業中';
+        if(createBtnStatus.textContent === '完了') {
+            return;
+        }
+        const index = row.rowIndex - 1;
+        createBtnStatus.textContent = todos[index].status;
         status.appendChild(createBtnStatus);
+        createBtnStatus.addEventListener('click', () => {
+            if(createBtnStatus.textContent === '作業中'){
+                createBtnStatus.textContent = '完了';
+            }else if(createBtnStatus.textContent === '完了') {
+                createBtnStatus.textContent = '作業中';
+            }
+            
+            todos[index].status = createBtnStatus.textContent;
+            
+        });
         return createBtnStatus;
     };
 
@@ -55,8 +70,9 @@
 
     add.addEventListener('click', () => {
         addTask();
+        console.log(todos);
     })
-    
+
 }
 
 
